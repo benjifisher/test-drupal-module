@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Test module for a custom page on admin/non-admin path.
+ *
+ * @see http://drupal.stackexchange.com/questions/222525/d7-custom-module-pages-not-rendering-when-added-to-admin-menu
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function op_reports_menu() {
+  $items = array();
+
+  $items['op_reports/glp_report'] = array(
+    'title' => 'GLP Report',
+    'description' => 'Report for Guided Learning Pathways.',
+    'page callback' => 'op_reports_page',
+    'access callback' => 'op_reports_access',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/op_reports/glp_report'] = $items['op_reports/glp_report'];
+
+  return $items;
+}
+
+/**
+ * Page callback.
+ */
+function op_reports_page() {
+  return array(
+    '#type' => 'markup',
+    '#markup' => '<p>My great report!</p>',
+  );
+}
+
+/**
+ * Access callback.
+ */
+function op_reports_access() {
+  return TRUE;
+}
