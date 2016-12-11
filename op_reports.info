@@ -1,0 +1,3 @@
+name = Op reports test module
+description = Test rendering a page on an admin path.
+core = 7.x
