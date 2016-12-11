@@ -30,9 +30,11 @@ function op_reports_menu() {
  * Page callback.
  */
 function op_reports_page() {
+  $page = '<p>My great report!</p>';
+
   return array(
-    '#type' => 'markup',
-    '#markup' => '<p>My great report!</p>',
+    '#theme' => 'glp_reports',
+    '#contents' => $page,
   );
 }
 
@@ -41,4 +43,20 @@ function op_reports_page() {
  */
 function op_reports_access() {
   return TRUE;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function op_reports_theme() {
+  $items = array();
+
+  $items['glp_reports'] = array(
+    'variables' => array(
+      'contents' => array(),
+    ),
+    'template' => 'op_theme',
+  );
+
+  return $items;
 }

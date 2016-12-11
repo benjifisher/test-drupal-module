@@ -8,7 +8,7 @@ This is used to test a
 Installation:
 
 - Install (enable) the module as usual.
-- Clear the menu cache.
+- Clear caches (at least menu, theme registry).
 - Visit `/op_reports/glp_report` or `/admin/op_reports/glp_report`.
 
 The code in this module is public domain.  No rights reserved.
